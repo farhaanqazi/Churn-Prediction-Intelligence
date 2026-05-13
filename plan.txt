@@ -1,0 +1,341 @@
+Churn Intelligence OS · Solo Founder Execution Playbook · v1.0 · 2026
+CHURN INTELLIGENCE OS
+Solo Founder
+Execution Playbook
+From first line of code to recurring monthly revenue.
+6 Phases 90-Day Plan Zero Cold Outreach Domain-Specific
+TARGET REVENUE
+$6K+
+Monthly by Month 4
+BUILD COST
+~$200
+Total infrastructure
+PAID ADS
+$0
+100% organic pull
+LAUNCH WINDOW
+14 Days
+Audit Tool MVP live
+How to Use This Document
+This playbook is your step-by-step operating manual. Each Phase builds directly on the last. Do not skip phases —
+the validation gates are there to protect your time and money. Every step is written in plain English: no assumed
+knowledge, no jargon without explanation. The document follows a single thread: build the smallest thing that
+proves someone will pay, then scale only what is proven.
+Churn Intelligence OS · Execution Playbook · Confidential Page 2
+Contents
+Phase 0 Foundation & Setup Days 1–2
+Phase 1 Build the Audit Tool (MVP) Days 3–9
+Phase 2 Distribution & First Signal Days 10–21
+Phase 3 Land the First Paid Client Days 22–45
+Phase 4 Build the Recurring Revenue Engine Days 46–90
+Phase 5 Domain Specialisation & Scale Month 3–6
+Appendix Quick-Reference Card —
+Churn Intelligence OS · Execution Playbook · Confidential Page 3
+0 Foundation & Setup
+Days 1–2 · ~4 hrs total
+Before writing a single line of code, get your environment, accounts, and mental model locked in. Skipping this phase leads to
+rework in week two.
+WHAT YOU ARE BUILDING
+You are a Fractional Churn Intelligence Officer. You deploy one specific system, for one specific type of company
+($5M–$50M ARR SaaS), at a fixed price, in a fixed timeframe. The free Audit Tool generates leads. The deployment
+service is the product. The monthly retainer is the business.
+1 Install Python 3.11
+Download from python.org. During install, tick 'Add Python to PATH'. Verify by opening Terminal and typing:
+python --version. You should see 3.11.x.
+python.org free
+2 Install VS Code
+Download from code.visualstudio.com. Install the Python extension (search 'Python' in the Extensions panel).
+This is your coding environment for the entire project.
+code.visualstudio.com free
+3 Create Your Project Folder
+Create a folder called churn-intelligence-os on your Desktop. Inside it create: /data, /validator, /engine,
+/streamlit_app, /reports. This is your workspace.
+local 5 mins
+4 Create Free Accounts
+Sign up for: GitHub (github.com) for code storage. Gumroad (gumroad.com) for selling. Mailchimp
+(mailchimp.com) for email capture. Streamlit Cloud (streamlit.io) for hosting. All free tiers are sufficient.
+github gumroad mailchimp streamlit
+5 Install Python Libraries
+Open Terminal in your project folder and run: pip install streamlit pandas scikit-learn shap reportlab openpyxl
+plotly. This installs everything needed for Phases 1–3.
+pip 5 mins
+Churn Intelligence OS · Execution Playbook · Confidential Page 4
+6 Define Your Target Client (Write It Down)
+Write one sentence: 'I help [B2B SaaS companies with 200–2,000 customers and $5M–$30M ARR] reduce
+churn by [deploying a health score system that tells their CS team who to call and why, updated weekly].' Pin
+this above your screen. strategy 15 mins
+4 Phase 0 Exit Gate
+python --version returns 3.11. All four accounts created. Your one-sentence client
+definition is written and visible.
+Churn Intelligence OS · Execution Playbook · Confidential Page 5
+1 Build the Audit Tool (MVP)
+Days 3–9 · ~20 hrs total
+This is your validation instrument — not a portfolio piece. Every design decision serves one purpose: separating browsers from
+buyers. Do not add features. Do not make it pretty. Make it produce a dollar figure that surprises the user.
+THE OUTPUT (What the user sees)
+CHURN AUDIT COMPLETE — 3 Critical Signals Detected
+Customer Risk Score MRR at Risk Primary Signal
+Acme Corp 87/100 $2,400/mo Login drop: -68% (30d)
+TechFlow Ltd 74/100 $1,800/mo 3 open support tickets
+BuilderBase 71/100 $950/mo No login in 18 days
+Total Revenue at Risk (next 60 days): $5,150
+1 Build the Validator (validator.py)
+Days 3–4. Write a Python script that checks an uploaded CSV for: correct column names, no >5% nulls in
+critical fields, correct data types. Output: Pass / Warn / Fail report with plain-English fixes. This is the front door
+— bad data never reaches the model. python days 3–4 ~3 hrs
+2 Build the Scoring Engine (scorer.py)
+Days 4–5. Use rule-based logic only — NOT XGBoost at this stage. Three rules: (1) Login count dropped >50%
+in 30 days = High Risk. (2) More than 2 open support tickets = Medium Risk. (3) No payment in 45 days = High
+Risk. Assign 0–100 score. Attach MRR to each customer row. python scikit-learn days 4–5 ~4 hrs
+3 Build the Streamlit App (app.py)
+Days 5–7. Single page. One CSV upload button. Output: the ranked risk table with MRR at Risk column. One
+bold total: 'Total Revenue at Risk: $X'. One upgrade prompt below the table. Two buttons: 'Yes, show me the
+full OS' (captures email) and 'No thanks' (logs dismissal to a Google Sheet via a free API call). streamlit days 5–7 ~5 hrs
+4 Build the Auto PDF Report (report.py)
+Days 7–8. When a user clicks 'Yes, show me', generate a PDF using reportlab. Header: 'Churn Intelligence
+Audit — [Company] — [Date]'. Body: the risk table, the total revenue at risk, and one paragraph of plain-English
+interpretation. This PDF is emailed to them. It will be forwarded. Every forward is free distribution. reportlab days 7–8 ~4 hrs
+Churn Intelligence OS · Execution Playbook · Confidential Page 6
+5 Deploy to Streamlit Cloud
+Day 9. Push your code to GitHub. Go to streamlit.io, connect your GitHub repo, click Deploy. Your app is now
+live at a public URL. Free tier supports everything you need for the first 100 users. Test with three different
+CSV files, including one deliberately broken file. streamlit cloud github day 9 ~2 hrs
+4 Phase 1 Exit Gate
+App live on Streamlit Cloud. Three test uploads work without crashing. The dollar figure
+appears correctly. The email capture connects to Mailchimp.
+Churn Intelligence OS · Execution Playbook · Confidential Page 7
+2 Distribution & First Signal
+Days 10–21 · ~8 hrs total
+The tool is live. Now you find out if anyone cares. Every action in this phase is organic — no paid ads, no cold outreach. You are
+placing the tool where your buyer already goes looking for solutions.
+THE FOUR DISTRIBUTION CHANNELS
+Reddit
+Post in r/SaaS, r/CustomerSuccess, r/startups. Title: 'Built a free Churn Audit tool — upload your
+CSV, get a Revenue at Risk figure in 60 seconds.' No selling. Add the Streamlit URL in the
+comments only if asked.
+Indie
+Hackers
+Post in 'Show IH' section. Write a build log: 'Week 1: How I built a churn predictor in 9 days.'
+Builders become buyers. The IH audience is your exact target customer.
+LinkedIn
+One post. Format: before/after. Left: 'Your CSM's Tuesday morning.' Right: 'Your CSM's Tuesday
+morning with Churn Intelligence.' Show the risk table screenshot, not the code. Tag it
+#CustomerSuccess #SaaS #ChurnReduction.
+Product
+Hunt
+Schedule a PH launch for Day 18. Write the tagline: 'See your revenue-at-risk in 60 seconds — free
+CSV upload.' Prepare 5 screenshots. Ask 3 people you know to upvote and comment on launch
+day. Launch on a Tuesday at 12:01 AM PST.
+YOUR VALIDATION METRICS (Measure These Only)
+Metric Threshold Why It Matters
+Real Data Uploads >30 Users who upload actual client data, not the sample file
+Upgrade Prompt CTR >25% Click 'Yes, show me' after seeing the results
+Email Quality
+3+ specific
+questions Emails asking about their specific data or workflow
+Time on Results Page >90 seconds They are reading, not bouncing
+THE DECISION GATE AT DAY 21
+n GREEN — Build the full OS
+30+ real uploads. >25% upgrade CTR. 3+ specific emails. Proceed to Phase 3
+immediately.
+n AMBER — Iterate
+Positioning
+30+ uploads but <15% upgrade CTR. The tool works but the gap to the 'full OS' is
+not clear enough. Rewrite the upgrade prompt copy. Do not build anything new
+yet.
+n RED — Pivot Before
+Investing
+<15 uploads or mostly sample-file uploads. The audience is wrong or the
+distribution channel is wrong. Try two new communities before concluding the idea
+has no demand.
+Churn Intelligence OS · Execution Playbook · Confidential Page 8
+3 Land the First Paid Client
+Days 22–45 · ~30 hrs of delivery
+You are not selling software. You are selling a result: a deployed, working Churn Health Score for every active customer in their
+account, visible in a Power BI dashboard, updated weekly, with a Red/Amber/Green action list. Fixed scope. Fixed price. Fixed
+timeline.
+YOUR PRODUCTIZED SERVICE — EXACT SCOPE DEFINITION
+3 INCLUDED
+• Deployment of the Medallion pipeline (Bronze/Silver/Gold layers) on their data
+• Churn Health Score for every active customer (0–100 risk score + primary signal)
+• Power BI dashboard: Executive Summary page + Risk Heatmap + RAG Action List
+• Validator script so their team can upload weekly data without your involvement
+• One 60-minute walkthrough call on delivery day
+7 NOT INCLUDED (upgrade triggers)
+® Live CRM integrations (Stripe/HubSpot auto-sync) ® Action Engine Add-On: +$800
+® Custom feature engineering beyond the standard 5 signals ® +$600
+® Model retraining after initial deployment ® Intelligence Retainer: +$1,200/mo
+® Slack/webhook alerts when a score drops ® Automation Add-On: +$500
+® More than one revision round to the Power BI template ® +$200/revision
+THE DELIVERY PROCESS — 10 STEPS
+D1 Send Intake Form
+Share a Notion form (free) collecting: number of active customers, CSV export from their CRM, primary CSM
+contact name, billing period. Set 48-hour turnaround expectation.
+D2 Run the Validator
+Run their CSV through validator.py. Email results within 4 hours. If data fails, send a plain-English fix list. Do
+not proceed until they pass the validator — this protects both sides.
+D3 Build Bronze Layer
+Load their raw CSV into DuckDB as the Bronze table. Append ingested_at timestamp. Run idempotency
+check — ensure no duplicate rows.
+D4 Build Silver Layer
+Standardise column names to your canonical schema. Resolve any identity mismatches. Flag and drop any
+records that cannot be linked across data sources.
+D5 Build Gold Layer (Feature Store)
+Calculate the 5 standard features: logins_30d, logins_prev_30d, usage_drop_30d, support_tickets_7d,
+days_since_last_payment. This is what the scoring engine reads.
+D6 Run the Scoring Engine
+Apply the rule-based scorer to every customer. Assign risk score (0–100) and primary_risk_factor label.
+Export as enriched_customers.csv.
+Churn Intelligence OS · Execution Playbook · Confidential Page 9
+D7 Build Power BI Template
+Open Power BI Desktop. Connect to enriched_customers.csv. Build 3 pages: (1) Executive Summary with
+total Revenue at Risk KPI card. (2) Risk Heatmap by segment. (3) RAG Action List sorted by MRR at Risk
+descending.
+D8 Write the Narrative Commentary
+Add text boxes to each Power BI page explaining the 'so what'. Example on the heatmap page: 'Enterprise
+customers in the 12–18 month cohort represent 67% of at-risk revenue. Prioritise QBRs with this segment this
+week.' This is your CS background in action.
+D9 Deliver and Walkthrough
+Share the Power BI file and the enriched CSV. Host a 60-minute Zoom walkthrough. Record it (with
+permission). Send the recording link — they will share it internally.
+D10 Offer the Retainer
+48 hours after delivery, send one email: 'The scores you saw today will be out of date in 4 weeks. I offer a
+monthly refresh for $1,200/month — I update the data, rerun the model, and send you an updated dashboard
+every 4 weeks. Want to set that up?' Do not discount. Do not follow up more than once.
+PRICING ARCHITECTURE
+Tier What They Get Price Your Time
+Initial Deployment Full pipeline + Power BI dashboard + walkthro$u3g,5h00 fixed ~10–12 hrs
+Action Engine Add-On Slack alerts when score drops below threshold + $800 ~3 hrs
+Intelligence Retainer Monthly data refresh + updated dashboard + $310,-2m0i0n/ mreoview cal~l 3 hrs/mo
+Quarterly Strategy Review Deep-dive: cohort analysis, model recalibratio$n8,0 b0o/saerds-sreioandy de~c4k hrs
+Churn Intelligence OS · Execution Playbook · Confidential Page 10
+4 Build the Recurring Revenue Engine
+Days 46–90 · System-building
+The goal of this phase is simple: convert one-time deployments into monthly retainers, and build the operational systems that let
+you serve 3–5 clients without burning out. Revenue ceiling: $6,000–$8,000/month with 5 retainer clients.
+THE REVENUE STAIRCASE
+Month Clients Revenue Mix Monthly Total
+Month 1 1 deployment $3,500 (one-time) $3,500
+Month 2 1 retainer + 1 new deploym$1e,n2t00 + $3,500 $4,700
+Month 3 2 retainers + 1 new deploy$m2,e4n0t0 + $3,500 $5,900
+Month 4 3 retainers + 1 new deploy$m3,e6n0t0 + $3,500 $7,100
+Month 5 4 retainers + strategy revie$w4,s800 + $1,600 $6,400
+Month 6 5 retainers + kit sales beg$in6,000 + $1,500 $7,500
+SYSTEMS TO BUILD IN THIS PHASE
+1 Automate the Weekly Refresh
+Write refresh.py — a script that accepts a new weekly CSV export, runs it through the Bronze/Silver/Gold
+pipeline, and exports an updated enriched_customers.csv. Client runs this themselves using your validator to
+confirm data quality first. Your involvement: 30 minutes per client per month to review the output and write the automation python recurring
+2 Build Your Case Study Library
+After each deployment, write a 200-word case study: Company type (anonymised). Problem they had. Signals
+the system detected. Revenue at risk identified. Action taken by their CSM. Result after 4 weeks. These
+replace cold outreach. Post one per month on LinkedIn and your GitHub README. content proof SEO
+3 Launch the Gumroad Kit (Month 3)
+Once you have 3 real deployments behind you, package the documentation into a self-serve kit. Price: $499 for
+the core scripts + documentation. $1,500 for the 'Pro Kit' with the Power BI template and the intervention
+playbook. List on Gumroad. Enable Gumroad Discover. Submit to Microsoft AppSource. gumroad passive income month 3
+4 Build Your SEO Foundation
+Create a GitHub Pages site (free). Write one long-form page per keyword: 'customer health score template
+power bi saas', 'b2b saas churn dashboard python', 'churn prediction small saas'. Each page: 800 words, one
+real screenshot, one link to the Audit Tool. This is your long-term pull engine — it compounds over 6–12 SEO github pages long-term
+Churn Intelligence OS · Execution Playbook · Confidential Page 11
+5 Establish Your Retainer Operating Rhythm
+For each retainer client, set a fixed monthly schedule: Week 1: they upload fresh CSV. Week 2: you run the
+pipeline and review output. Week 3: you send the updated Power BI file + written narrative. Week 4: optional
+30-min review call. Batch all clients into the same week. This means 3 days of focused work per month, not 20 operations systems scalable
+Churn Intelligence OS · Execution Playbook · Confidential Page 12
+5 Domain Specialisation & Scale
+Month 3–6 · Moat-building
+This is where your NHS and banking background becomes an uncopiable competitive advantage. Generic churn tools break
+when applied to regulated industries. You know exactly why — and you know how to fix it. No one else in this market has that
+combination.
+WHY GENERIC CHURN MODELS FAIL IN YOUR DOMAINS
+Signal Generic SaaS Model Says Your Domain Knowledge Says
+Low login frequency High churn risk Healthcare: product is working autonomously. Cybersecurity: system is healthy.
+High support tickets Friction ® churn risk Enterprise: engaged client investing in implementation ® retention signal
+Sudden ticket drop Problem resolved Banking: client gave up trying and is quietly evaluating alternatives
+Flat MRR Stable account Fintech: volume may be migrating to competitor while contract stays active
+Annual contract renewal Standard event NHS: 18-month lead time on exits. The signal is 14 months before renewal, not 30 days.
+YOUR TWO DOMAIN VARIANTS
+Healthcare / NHS Variant
+• Signals: clinical adoption rate, admin vs clinical login ratio, implementation completion %, IT ticket taxonomy
+• Model: Survival Analysis (Cox regression) — churn is rare, lead times are long, XGBoost will overfit
+• Compliance: NHS IG Toolkit validator, DSPT alignment check, local DuckDB (no cloud — more compliant)
+• Output format: NHS Board Paper style — specific structure, specific language, RAG status by directorate
+• Intervention playbook: Multi-stakeholder QBR — clinical lead + IT director + finance simultaneously
+• Your moat: You worked inside Leeds Teaching Hospitals NHS Trust. You know System One quirks, PAS export
+formats, and the exact language a Trust Board Chair expects on slide 2.
+Fintech / Banking Variant
+• Signals: transaction volume trend, API error rate delta, support ticket taxonomy, competitor mention frequency
+• Model: Gradient boosting + volume migration detector — partial churn (revenue leaves before logo leaves)
+• Compliance: FCA SS1/23 model validation framework, PCI DSS field checker, GDPR purpose limitation validator
+• Output format: Risk Committee Pack — RAG status, SLA performance trend, model confidence interval
+• Intervention playbook: Formal Service Review with documented SLA performance — not an informal catch-up
+• Your moat: You operated inside J&K; Bank. You know what a risk committee asks for, what a relationship manager
+needs, and why those are three different documents from the same data.
+Churn Intelligence OS · Execution Playbook · Confidential Page 13
+The Rule That Governs Everything
+You are not a software vendor. You are not a consultant. You are a specialist who deploys one specific system, for
+one specific type of company, at a fixed price, in a fixed timeframe — and the clients who need it come to you
+because your free Audit Tool showed them exactly what they were missing.
+The Audit Tool is the proof of concept. The deployment is the product. The monthly retainer is the business. The
+domain variants are the moat. In that sequence, this is a real business. Outside of it, it is a collection of
+impressive components without a revenue engine.
+Churn Intelligence OS · Execution Playbook · Confidential Page 14
+Quick-Reference Card
+Print this page. Pin it above your screen. Check off each gate before advancing.
+Phase Key Actions Gate to Pass Revenue Trigger
+0 Foundation
+Days 1–2
+Python installed
+Accounts created
+Client definition written
+python --version works
+4 accounts live
+—
+1 Audit Tool
+Days 3–9
+Validator built
+Scorer built
+Streamlit app live
+App live + 3 test
+uploads work
+—
+2 Distribution
+Days 10–21
+4 channels posted
+Metrics tracked
+Decision gate hit
+30 real uploads
+25%+ upgrade CTR
+Email list building
+3 First Client
+Days 22–45
+Intake ® Validate
+Deploy pipeline
+Power BI delivered
+Client says 'yes'
+to retainer offer
+$3,500 + $1,200/mo
+4 Revenue Engine
+Days 46–90
+Retainer system
+Gumroad kit live
+SEO pages written
+3 active retainers $5,900–$7,100/mo
+5 Domain Moat
+Month 3–6
+NHS variant built
+Fintech variant built
+Case studies published
+1 domain-specific
+client signed
+$7,500+/mo
+WHAT TO AVOID AT EACH STAGE
+Phase 0–1 Building Next.js before the Streamlit app has a single real user
+Phase 1–2 Using sample data in your own testing — always test with real-shaped data
+Phase 2–3 Discounting your price before the first sales conversation happens
+Phase 3–4 Taking on a client whose data fails the validator — it will cost 40 hours of unpaid support
+Phase 4–5 Trying to serve healthcare AND fintech AND horizontal SaaS simultaneously — pick one first
+All phases Building connector integrations (Stripe API, HubSpot API) before you have 10 paying clients
+Churn Intelligence OS · Solo Founder Execution Playbook · v1.0 · 2026 · Built on the principle: validate before you build, build before you scale.
