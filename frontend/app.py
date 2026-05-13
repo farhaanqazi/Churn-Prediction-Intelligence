@@ -146,21 +146,7 @@ if uploaded_file is not None:
     display_df['MRR'] = display_df['MRR'].apply(lambda x: f"${x:,.0f}")
     display_df['Primary Signal'] = display_df['Primary Signal'].str[:50]
     
-    # Color risk scores
-    def color_risk_score(val):
-        if int(val) >= 70:
-            return 'background-color: #fee2e2; color: #dc2626; font-weight: bold'
-        elif int(val) >= 50:
-            return 'background-color: #fef3c7; color: #92400e'
-        else:
-            return 'background-color: #dcfce7; color: #166534'
-    
-    styled_df = display_df.style.applymap(
-        color_risk_score,
-        subset=['Risk Score']
-    )
-    
-    st.dataframe(styled_df, width='stretch', height=400)
+    st.dataframe(display_df, width='stretch', height=400)
     
     st.markdown("---")
     

@@ -14,7 +14,8 @@ env/
 .ipynb_checkpoints/
 
 # Streamlit
-.streamlit/
+.streamlit/*
+!.streamlit/config.toml
 
 # OS files
 .DS_Store

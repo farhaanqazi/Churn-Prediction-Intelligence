@@ -30,8 +30,10 @@ pip install -r requirements.txt
 
 ```bash
 cd "F:/Customer Churn Prediction"
-.venv\Scripts\streamlit run frontend\app.py
+.venv\Scripts\streamlit run app.py
 ```
+
+Then open `http://127.0.0.1:8501`.
 
 ## Tests
 

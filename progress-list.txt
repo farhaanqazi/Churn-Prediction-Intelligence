@@ -1,0 +1,74 @@
+# Churn Intelligence OS Progress List
+
+Assessment source: current codebase and local verification only. Business/account status, external deployments, and outreach progress are not inferred from `plan.txt` or README text.
+Last assessed: 2026-05-13
+
+Progress marking rules:
+- Completed: `- [x] ~~Task name~~ - Evidence: ...`
+- Not completed: `- [ ] Task name`
+- Partial: `- [ ] Task name - Partial: ...`
+
+## Phase 0 - Foundation & Setup
+
+- [x] ~~Project folder exists.~~ - Evidence: repository root contains `backend/`, `frontend/`, `data/`, `plan.txt`, and project config files.
+- [x] ~~Python environment exists via `.venv`.~~ - Evidence: `.venv/` exists with Python and Streamlit executables.
+- [x] ~~Python libraries are declared in `requirements.txt`.~~ - Evidence: `requirements.txt` declares Streamlit, pandas, scikit-learn, reportlab, openpyxl, and plotly.
+- [ ] External accounts created: GitHub, Gumroad, Mailchimp, Streamlit Cloud.
+- [ ] Target client sentence written in codebase.
+
+## Phase 1 - Build the Audit Tool MVP
+
+- [x] ~~Validator built in `backend/validator/validator.py`.~~ - Evidence: `validate_csv()` checks required columns, data types, null thresholds, sanity issues, duplicates, and returns Pass/Warn/Fail details.
+- [x] ~~Rule-based scoring engine built in `backend/engine/scorer.py`.~~ - Evidence: `ChurnScorer` and `score_audit_data()` calculate 0-100 risk scores, primary risk factors, risk categories, and revenue at risk.
+- [x] ~~Streamlit app built in `frontend/app.py` with root launcher `app.py`.~~ - Evidence: `frontend/app.py` provides upload, validation, scoring, metrics, risk table, upgrade prompt, and exports; root `app.py` launches it for preview runners.
+- [ ] Streamlit app email capture - Partial: email input and "Show me the full OS" button exist, but no Mailchimp/API persistence is implemented.
+- [ ] "No thanks" dismissal logging - Not found.
+- [x] ~~PDF report generator built in `backend/reports/report.py`.~~ - Evidence: `generate_audit_pdf()` creates an audit PDF with header, key findings, risk table, interpretation, and next steps.
+- [x] ~~Sample customer CSV exists in `data/sample_customers.csv`.~~ - Evidence: sample CSV exists with the expected audit columns.
+- [x] ~~Sample data generator exists in `data/generate_sample_data.py`.~~ - Evidence: script generates realistic customer rows and writes a CSV.
+- [ ] Streamlit Cloud deployment - Not verifiable from codebase.
+- [x] ~~Local app render verified with Streamlit test harness.~~ - Evidence: `AppTest.from_file("app.py")` rendered with zero exceptions during local verification.
+- [x] ~~Component/PDF tests exist and pass.~~ - Evidence: `backend/tests/test_components.py` and `backend/tests/test_pdf.py` exist and passed during local verification.
+- [ ] Phase 1 exit gate - Partial: local app/tests pass; cloud deployment and Mailchimp integration are missing.
+
+## Phase 2 - Distribution & First Signal
+
+- [ ] Reddit launch.
+- [ ] Indie Hackers post.
+- [ ] LinkedIn post.
+- [ ] Product Hunt launch.
+- [ ] Real upload tracking.
+- [ ] Upgrade CTR tracking.
+- [ ] Email quality tracking.
+- [ ] Time-on-results tracking.
+- [ ] Day 21 decision gate.
+
+## Phase 3 - Land the First Paid Client
+
+- [ ] Intake form.
+- [x] ~~Validator usable for client CSVs.~~ - Evidence: `validate_csv()` accepts a file path or uploaded file object and returns actionable validation output.
+- [ ] Bronze layer / DuckDB ingestion.
+- [ ] Silver layer canonical schema.
+- [ ] Gold feature store.
+- [x] ~~Rule-based scoring engine reusable for customer scoring.~~ - Evidence: `score_audit_data()` accepts a customer DataFrame and returns enriched scored rows.
+- [ ] Exported `enriched_customers.csv` workflow.
+- [ ] Power BI dashboard template.
+- [ ] Narrative commentary workflow.
+- [ ] Delivery/walkthrough workflow.
+- [ ] Retainer offer workflow.
+
+## Phase 4 - Recurring Revenue Engine
+
+- [ ] `refresh.py` weekly refresh automation.
+- [ ] Case study library.
+- [ ] Gumroad kit.
+- [ ] SEO/GitHub Pages site.
+- [ ] Retainer operating rhythm.
+
+## Phase 5 - Domain Specialisation & Scale
+
+- [ ] Healthcare/NHS variant.
+- [ ] Fintech/Banking variant.
+- [ ] Domain-specific compliance validators.
+- [ ] Domain-specific outputs/templates.
+- [ ] Domain-specific client signed.
